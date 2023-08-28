@@ -1,0 +1,68 @@
+.papa {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  width: 1200px;
+  font-family: Rubik;
+  height: 100px;
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+}
+
+.navpn {
+  font-weight: 700;
+}
+
+
+.textocontenedor {
+  display: flex;
+  margin-left: 140px;
+  
+}
+
+.texto {
+  margin: 20px;
+  font-family: Rubik;
+  font-size: 16px;
+  color: #4f5665;
+}
+
+.botoncontenedor {
+  display: flex;
+  margin: auto;
+}
+
+.logocontenedor {
+  display: flex;
+  align-items: center;
+  margin: auto;
+}
+
+.botoncontenedor {
+  align-items: center;
+  margin: auto;
+}
+
+.singin {
+  background-color: transparent;
+  border-bottom: transparent;
+  margin-right: 20px;
+  font-weight: bold;
+}
+
+.signUp {
+  padding: 15px;
+  border: 2px solid;
+  border-radius: 30px;
+  border-color:#f53855;
+  border-width: 1px;
+  font-size: 16px;
+  font-weight: 500;
+  width: 100px;
+  text-align: center;
+  color:#f53855;
+  font-weight: bold;
+}

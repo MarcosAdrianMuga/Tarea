@@ -1,0 +1,148 @@
+@import url('https://fonts.googleapis.com/css2?family=Rubik:wght@400&display=swap');
+
+body {
+  background-size: cover;
+    background-attachment: fixed;
+    max-width: 1200px;
+    margin: 0 auto;
+    font-family: Rubik;
+    font-size: 18px;
+    padding-left: 100px;
+}
+
+.wantAnythingToContainer {
+  font-size: 50px;
+}
+
+.contenedortextoimagen {
+  display: flex;
+  align-items: center;
+  margin-top: 60px;
+}
+
+.fotito {
+  width: 70%;
+  height: 70%;
+  margin-top: 15px;
+margin-right: 10px;
+}
+
+.antesdelplan {
+  margin-top: 100px;
+  text-align: center;
+}
+
+.chooseYourPlan1 {
+  display: flex;
+  justify-content: center;
+}
+
+.mastexto {
+  font-size: 16px;
+  color:#4f5665;
+}
+
+.chooseYourPlan1 {
+  font-size: 35px;
+}
+
+.contenedordetexto {
+  font-size: 50px;
+  width: 70%;
+  align-items: center;
+  
+}
+
+.logolindo {
+  font-weight: 600;
+  font-size: 55px;
+}
+
+.provideANetworkContainer {
+  font-size: 17px;
+  color:#4f5665;
+  
+}
+
+.elvpndelasles {
+  font-weight: 900;
+}
+
+.laslesvpn {
+  font-weight: 600;
+}
+
+.boton {
+  margin-top: 10px;
+border-radius: 10px;
+border-color: transparent;
+background-color: #f53838;
+width: 40%;
+height: 60px;
+box-shadow:  0px 19px 16px -15px #f53838;
+}
+
+.getStarted {
+  color: #fff;
+  font-size: 17px;
+}
+
+.contenederfotito2ytexto {
+  max-width: 1090px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 40px;
+  box-shadow: 0px 19px 16px -30px #4f5665;
+}
+
+.fotito2 {
+  width:500px ;
+  height:500px ;
+  margin-left: 30px;
+  margin-right: 100px;
+}
+
+.textoapp {
+  margin-left: 50px;
+}
+
+.texto1 {
+  font-size: 34px;
+  font-weight: 600;
+  height: 90px;
+}
+
+.texto2 {
+  font-size: 15px;
+  color: #666666;
+}
+
+.customlist {
+  list-style-type: none;
+  padding-left: 0px;
+  padding-bottom: 0px;
+  font-size: 14px;
+  color: #666666;
+  
+}
+
+.customlist li {
+  margin-bottom: 15px;
+  
+}
+
+.customlist li:before {
+  content: url("list.svg");
+  margin-right: 10px;
+  vertical-align: middle;
+}
+
+.despuesdelplan {
+  text-align: center;
+}
+
+.globoo {
+  width: 75%;
+  margin-top: 150px;
+}
