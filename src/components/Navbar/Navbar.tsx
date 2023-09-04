@@ -5,7 +5,7 @@ export default function NavBar() {
     <div className="papa">
       <div className="nav">
         <img className="logoi" alt="" src="Standard Collection 27.jpg" />
-        <div className="laslesvpn">
+        <div className="laslesvpn2">
           <span className="lasles">Lasles</span>
           <b className="navpn">VPN</b>
         </div>

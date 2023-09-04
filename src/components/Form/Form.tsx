@@ -1,47 +1,93 @@
 import "./Form.css";
-import { useState } from 'react'
+import * as yup from "yup";
+import { useForm } from "react-hook-form";
+
+type FormData = {
+  fullname: string;
+  email: string;
+  phone: string;
+  message: string;
+};
 
 export default function Form() {
-    const [form, setForm] = useState({
-        Nombre: "",
-        Email: "",
-        Num: "",
-        Mensaje: ""
-    })
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm<FormData>();
 
-    const handleClick = () => {
-        
-    }
+  const schema = yup.object({
+    fullname: yup.string().required(),
+    email: yup.string().email(),
+    phone: yup.string().min(10, "You are missing some numbers!").required(),
+    message: yup.string().required(),
+  });
 
-    const handleCambio = (e) => {
-        switch(e.target.name){
-            case "Nombre": setForm({...form, Nombre: e.target.value})
-            break;
-            case "Email": setForm({...form, Email: e.target.value})
-            break;
-            case "Num": setForm({...form, Num: e.target.value})
-            break;
-            case "Mensaje": setForm({...form, Mensaje: e.target.value})
-            break;
-        }
-    }
+  const subir = handleSubmit((data) => {
+    schema
+      .validate(data)
+      .then(() => {
+        fetch(
+          `https://6xrb5goi1l.execute-api.us-east-1.amazonaws.com/api/send-email`,
+          {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify(data),
+          }
+        )
+          .then((response) => {
+            if (response.ok) {
+              alert("Thanks! we will be in touch!");
+            } else {
+              alert(response.statusText);
+            }
+          })
+          .catch((error) => {
+            alert(error);
+          });
+      })
+      .catch((validationError) => {
+        alert(validationError);
+      });
+  });
+
   return (
-    <form>
-      <div className="labels">
-        <label className="nombre">Nombre completo</label>
-        <label className="email">Email</label>
-        <label className="telefono">Número telefónico</label>
+    <form onSubmit={subir}>
+      <div>
+        <input
+          type="text"
+          placeholder="Enter your full name"
+          {...register("fullname")}
+        />
       </div>
-      <input onChange={(e) => handleCambio(e)} className="inp" type="text" id="nombre" name="Nombre" />
-      <input onChange={(e) => handleCambio(e)} className="inp" type="email" id="email" name="Email" />
-      <input onChange={(e) => handleCambio(e)} className="inp" type="tel" id="telefono" name="Num" />
-      <br/>
-      <label className="mensaje">Mensaje</label>
-      <br />
-      <textarea onChange={(e) => handleCambio(e)} id="mensaje" name="mensaje"></textarea>
-      <br />
+      <div>
+        <input
+          type="text"
+          placeholder="Enter your Email"
+          {...register("email")}
+        />
+        <p>{errors.email?.message}</p>
+      </div>
 
-      <button onClick={handleClick()} type="submit">Enviar</button>
+      <div>
+        <input
+          type="text"
+          placeholder="Enter your phone number"
+          {...register("phone")}
+        />
+      </div>
+
+      <div>
+        <input
+          type="text"
+          placeholder="Enter your message"
+          {...register("message")}
+        />
+      </div>
+
+      <button type="submit">Submit</button>
     </form>
   );
 }
