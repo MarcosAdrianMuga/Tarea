@@ -77,7 +77,12 @@ body {
   background-color: #f53838;
   width: 40%;
   height: 60px;
+  /* box-shadow: 0px 19px 16px -15px #f53838; */
+}
+
+.boton:hover {
   box-shadow: 0px 19px 16px -15px #f53838;
+  transition: 1s;
 }
 
 .getStarted {
@@ -116,6 +121,12 @@ body {
   color: #666666;
 }
 
+.cambio:hover {
+  cursor: pointer;
+  color: #F53855;
+  transition: 0.5s;
+}
+
 .customlist {
   list-style-type: none;
   padding-left: 0px;
@@ -129,7 +140,7 @@ body {
 }
 
 .customlist li:before {
-  content: url("list.svg");
+  content: url(".//assets/list1.svg");
   margin-right: 10px;
   vertical-align: middle;
 }

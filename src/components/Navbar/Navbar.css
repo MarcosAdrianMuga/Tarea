@@ -35,6 +35,12 @@
   color: #4f5665;
 }
 
+.texto:hover {
+  cursor: pointer;
+  color: #F53855;
+  transition: 0.5s;
+}
+
 .botoncontenedor {
   display: flex;
   margin: auto;
@@ -70,4 +76,10 @@
   text-align: center;
   color:#f53855;
   font-weight: bold;
+}
+
+.signUp:hover {
+  background-color: #F53855;
+  color: white;
+  transition: 1s;
 }

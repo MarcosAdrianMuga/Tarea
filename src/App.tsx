@@ -3,7 +3,15 @@ import "./App.css";
 import Rectangulo from "./components/Rectangulo/Rectangulo";
 import Planes from "./components/Planes/Planes";
 import Form from "./components/Form/Form";
-// import Pasarela from "./components/Pasarela/Pasarela";
+import Pasarela from "./components/Pasarela/Pasarela";
+import chico from "./assets/chico.svg"
+import chico2 from "./assets/chico2.svg"
+import globo from "./assets/globo.svg"
+import marcas from "./assets/marcas.svg"
+import StandardC from "./assets/StandardC.jpg"
+import Instagram from "./assets/Instagram.svg"
+import Twitter from "./assets/Twitter.svg"
+import Facebook from "./assets/Facebook.svg"
 
 export default function App() {
   return (
@@ -40,14 +48,14 @@ export default function App() {
           </button>
         </div>
 
-        <img className="fotito" src="chico.svg"></img>
+        <img className="fotito" src={chico}></img>
       </div>
 
       <Rectangulo />
 
       <div className="contenederfotito2ytexto">
         <div>
-          <img className="fotito2" src="chico2.svg"></img>
+          <img className="fotito2" src={chico2}></img>
         </div>
         <div className="textoapp">
           <div className="texto1">We Provide Many Features You Can Use</div>
@@ -93,8 +101,8 @@ export default function App() {
           </span>
         </div>
         <div className="globoo">
-          <img src="globo.svg"></img>
-          <img src="marcas.svg"></img>
+          <img src={globo}></img>
+          <img src={marcas}></img>
         </div>
 
         <h1 className="despues">
@@ -107,16 +115,14 @@ export default function App() {
         </div>
       </div>
 
-      {/* <Pasarela /> No me salio */}
-
-      {/* <Pasarela/> */}
+      <Pasarela/>
 
       <Form />
 
       <footer className="fo">
         <div className="nav2">
           <div className="laslesvpnn">
-            <img className="" alt="" src="Standard Collection 27.jpg" />
+            <img className="" alt="" src={StandardC} />
             <span className="lasles">Lasles</span>
             <b className="navpn">VPN</b>
           </div>
@@ -128,9 +134,9 @@ export default function App() {
             high security.
           </p>
           <div className="fotoo2">
-            <img className="fotoo" src="Facebook.svg" alt="facebook" />
-            <img className="fotoo" src="Twitter.svg" alt="twitter" />
-            <img className="fotoo" src="Instagram.svg" alt="instagram" />
+            <img className="fotoo" src={Facebook} alt="facebook" />
+            <img className="fotoo" src={Twitter} alt="twitter" />
+            <img className="fotoo" src={Instagram }alt="instagram" />
           </div>
           <span className="pp">©2020Lasles</span>
           <span className="ppp">VPN</span>
@@ -140,30 +146,30 @@ export default function App() {
           <div className="losult">
             <p className="ma">Product</p>
             <div className="texto2">
-              <p>Download</p>
-              <p>Pricing</p>
-              <p>Locations</p>
-              <p>Server</p>
-              <p>Countries</p>
-              <p>Blog</p>
+              <p className="cambio">Download</p>
+              <p className="cambio">Pricing</p>
+              <p className="cambio">Locations</p>
+              <p className="cambio">Server</p>
+              <p className="cambio">Countries</p>
+              <p className="cambio">Blog</p>
             </div>
           </div>
           <div className="losult">
             <p className="ma">Engage</p>
             <div className="texto2">
-              <p>LaslesVPN ?</p>
-              <p>FAQ</p>
-              <p>Tutorials</p>
-              <p>About Us</p>
-              <p>Privacy Policy</p>
-              <p>Term of Service</p>
+              <p className="cambio">LaslesVPN ?</p>
+              <p className="cambio">FAQ</p>
+              <p className="cambio">Tutorials</p>
+              <p className="cambio">About Us</p>
+              <p className="cambio">Privacy Policy</p>
+              <p className="cambio">Term of Service</p>
             </div>
           </div>
           <div className="losult">
             <p className="ma">Earn Money</p>
             <div className="texto2">
-              <p>Afiliate</p>
-              <p>Become Partner</p>
+              <p className="cambio">Afiliate</p>
+              <p className="cambio">Become Partner</p>
             </div>
           </div>
         </div>

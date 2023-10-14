@@ -1,10 +1,11 @@
 import "./Navbar.css";
+import StandardC from "../../assets/StandardC.jpg"
 
 export default function NavBar() {
   return (
     <div className="papa">
       <div className="nav">
-        <img className="logoi" alt="" src="Standard Collection 27.jpg" />
+        <img className="logoi" alt="" src={StandardC} />
         <div className="laslesvpn2">
           <span className="lasles">Lasles</span>
           <b className="navpn">VPN</b>

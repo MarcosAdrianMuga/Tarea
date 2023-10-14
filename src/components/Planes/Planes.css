@@ -37,7 +37,7 @@
 }
 
 .listita li:before {
-  content: url("list2.svg");
+  content: url("../../assets/list2.svg");
   margin-right: 10px;
   vertical-align: middle;
 }

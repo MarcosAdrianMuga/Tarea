@@ -1,6 +1,7 @@
-import "./Form.css";
+import { useState } from "react";
 import * as yup from "yup";
 import { useForm } from "react-hook-form";
+import "./Form.css"
 
 type FormData = {
   fullname: string;
@@ -14,15 +15,16 @@ export default function Form() {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm<FormData>();
+  } = useForm<FormData>();  
 
   const schema = yup.object({
-    fullname: yup.string().required(),
-    email: yup.string().email(),
-    phone: yup.string().min(10, "You are missing some numbers!").required(),
-    message: yup.string().required(),
+    fullname: yup.string().required("Full name is a required field"),
+    email: yup.string().email().required("Email is a required field"),
+    phone: yup.number().typeError("Phone must be a number").min(10, "You are missing some numbers!").required(),
+    message: yup.string().required("Message is a required field"),
   });
 
+  const [error, setError] = useState<string | null>(null);
   const subir = handleSubmit((data) => {
     schema
       .validate(data)
@@ -39,22 +41,23 @@ export default function Form() {
         )
           .then((response) => {
             if (response.ok) {
-              alert("Thanks! we will be in touch!");
+              setError("Thanks! We will be in touch!");
             } else {
-              alert(response.statusText);
+              setError(response.statusText);
             }
           })
-          .catch((error) => {
-            alert(error);
+          .catch((err) => {
+            setError(err.message);
           });
       })
       .catch((validationError) => {
-        alert(validationError);
+        setError(validationError.message);
       });
   });
 
   return (
     <form onSubmit={subir}>
+      <h1 className="Co">Contact us</h1>
       <div>
         <input
           type="text"
@@ -67,15 +70,16 @@ export default function Form() {
           type="text"
           placeholder="Enter your Email"
           {...register("email")}
+          autoComplete="email"
         />
-        <p>{errors.email?.message}</p>
       </div>
 
       <div>
         <input
-          type="text"
+          type="tel"
           placeholder="Enter your phone number"
           {...register("phone")}
+          autoComplete="tel"
         />
       </div>
 
@@ -86,6 +90,10 @@ export default function Form() {
           {...register("message")}
         />
       </div>
+
+      {errors !== null && (
+  <p className={error === "Thanks! We will be in touch!" ? "okmessage" : "errormessage"}>{error}</p>
+)}
 
       <button type="submit">Submit</button>
     </form>
