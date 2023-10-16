@@ -40,7 +40,7 @@ const Carousel: React.FC = () => {
       <div className="carousel">
         <div
           className="carousel-content"
-          style={{ transform: `translateX(-${currentIndex * 33.33}%)` }}
+          style={{ transform: `translateX(-${currentIndex * 49}%)` }}
         >
           {testimonial?.map((t, index) => (
             <div key={index} className="carousel-review">
