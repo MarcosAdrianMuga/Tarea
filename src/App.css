@@ -7,7 +7,6 @@ body {
   margin: 0 auto;
   font-family: Rubik;
   font-size: 18px;
-  padding-left: 100px;
 }
 
 .wantAnythingToContainer {
@@ -20,11 +19,23 @@ body {
   margin-top: 60px;
 }
 
+@media only screen and (max-width: 768px) {
+  .contenedortextoimagen {
+    margin-top: 0px;
+  }
+}
+
 .fotito {
   width: 70%;
   height: 70%;
   margin-top: 15px;
   margin-right: 10px;
+}
+
+@media only screen and (max-width: 768px) {
+  .fotito {
+    display: none;
+  }
 }
 
 .antesdelplan {
@@ -50,6 +61,13 @@ body {
   font-size: 50px;
   width: 70%;
   align-items: center;
+}
+
+@media only screen and (max-width: 768px) {
+  .contenedordetexto {
+    width: 100%;
+    text-align: center;
+  }
 }
 
 .logolindo {
@@ -123,7 +141,7 @@ body {
 
 .cambio:hover {
   cursor: pointer;
-  color: #F53855;
+  color: #f53855;
   transition: 0.5s;
 }
 
