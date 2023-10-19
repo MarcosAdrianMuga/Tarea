@@ -54,5 +54,15 @@
 @media only screen and (max-width: 768px) {
   .rec {
     flex-direction: column;
+    width: auto;
+    height: 0%;
+  }
+
+  .rectangleDiv{
+    margin-bottom: 50px;
+  }
+
+  .linea {
+    display: none;
   }
 }

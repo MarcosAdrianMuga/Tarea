@@ -20,15 +20,45 @@ body {
 }
 
 @media only screen and (max-width: 768px) {
+  .landing {
+    
+    max-width: 634px;
+    background-size: cover;
+  background-attachment: fixed;
+  max-width: 1200px;
+  margin: 0 auto;
+  font-family: Rubik;
+  font-size: 18px;
+  }
   .contenedortextoimagen {
-    margin-top: 0px;
+    margin-top: 80px;
+  }
+  .contenedortextoimagen {
+    flex-direction: column; 
+  }
+
+  .globoo {
+    display: none;
+  }
+
+  .fotito, .fotito2 {
+    display: none; 
+  }
+
+  .contenedordetexto {
+    width: 100%;
+    text-align: center; 
+  }
+
+  .wantAnythingToContainer {
+    font-size: 40px;
   }
 }
 
 .fotito {
   width: 70%;
   height: 70%;
-  margin-top: 15px;
+  margin-top: 60px;
   margin-right: 10px;
 }
 
@@ -95,7 +125,6 @@ body {
   background-color: #f53838;
   width: 40%;
   height: 60px;
-  /* box-shadow: 0px 19px 16px -15px #f53838; */
 }
 
 .boton:hover {
@@ -222,11 +251,6 @@ body {
   color: #afb5c0;
   font-weight: 600;
 }
-
-/* .loultimo {
-  display: flex;
-  justify-content: space-between;
-} */
 
 .loultimo {
   display: grid;

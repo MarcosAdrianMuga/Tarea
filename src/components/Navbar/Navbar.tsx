@@ -1,5 +1,5 @@
 import "./Navbar.css";
-import StandardC from "../../assets/StandardC.jpg"
+import StandardC from "../../assets/StandardC.jpg";
 
 export default function NavBar() {
   return (

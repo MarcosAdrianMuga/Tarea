@@ -12,11 +12,13 @@ import StandardC from "./assets/StandardC.jpg"
 import Instagram from "./assets/Instagram.svg"
 import Twitter from "./assets/Twitter.svg"
 import Facebook from "./assets/Facebook.svg"
+import Options from "./components/Options/Options";
 
 export default function App() {
   return (
     <div className="landing">
       <NavBar />
+      <Options/>
       <div className="contenedortextoimagen">
         <div className="contenedordetexto">
           <h1 className="wantAnythingToContainer" id="h1">
