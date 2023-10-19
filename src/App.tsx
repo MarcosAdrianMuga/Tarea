@@ -103,8 +103,12 @@ export default function App() {
           </span>
         </div>
         <div className="globoo">
+          <div className="globo1">
           <img src={globo}></img>
+          </div>
+          <div className="imagennoglobo2">
           <img src={marcas}></img>
+          </div>
         </div>
 
         <h1 className="despues">

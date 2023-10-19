@@ -70,10 +70,18 @@
   margin-left: 1.25rem;
   justify-content: center;
 
-  @media (min-width: 768px) {
-    justify-content: flex-end;
-  }
+  
 }
+
+@media only screen and (max-width: 768px) {
+  .container {
+    max-width: 960px;
+    }
+
+    .carousel-content {
+      transform: translateY(-10%);
+    }
+  }
 
 .botonP1 {
   padding: 1.3rem;
