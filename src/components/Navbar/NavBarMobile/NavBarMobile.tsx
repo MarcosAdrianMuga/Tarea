@@ -1,8 +1,8 @@
-import "./Options.css";
-import StandardC from "../../assets/StandardC.jpg";
+import "./NavbarMobile.css";
+import StandardC from "../../../assets/StandardC.jpg";
 import { useState } from "react";
 
-const Options = () => {
+const NavBarMobile = () => {
   const [menu, setMenu] = useState(false);
 
   const handleClick = () => {
@@ -28,11 +28,31 @@ const Options = () => {
 
       <nav className={`Cabecera-nav ${menu ? "isActive" : ""}`}>
         <ul className="Cabecera-ul">
-          <li className="Cabecera-li">About</li>
-          <li className="Cabecera-li">Features</li>
-          <li className="Cabecera-li">Pricing</li>
-          <li className="Cabecera-li">Testimonials</li>
-          <li className="Cabecera-li"> Help</li>
+          <li className="Cabecera-li">
+            <a href="#about" className="Cabecera-a">
+              About
+            </a>
+          </li>
+          <li className="Cabecera-li">
+            <a href="#features" className="Cabecera-a">
+              Features
+            </a>
+          </li>
+          <li className="Cabecera-li">
+            <a href="#pricing" className="Cabecera-a">
+              Pricing
+            </a>
+          </li>
+          <li className="Cabecera-li">
+            <a href="#testimonials" className="Cabecera-a">
+              Testimonials
+            </a>
+          </li>
+          <li className="Cabecera-li">
+            <a href="#help" className="Cabecera-a">
+              Help
+            </a>
+          </li>
 
           <a className="singin">Sign In</a>
           <a className="signUp">Sign Up</a>
@@ -50,4 +70,4 @@ const Options = () => {
   );
 };
 
-export default Options;
+export default NavBarMobile;

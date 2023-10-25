@@ -1,25 +1,25 @@
-import NavBar from "./components/Navbar/Navbar";
 import "./App.css";
-import Rectangulo from "./components/Rectangulo/Rectangulo";
-import Planes from "./components/Planes/Planes";
+import StatsRectangle from "./components/StatsRectangle/StatsRectangle";
+import Plans from "./components/Plans/Plans";
 import Form from "./components/Form/Form";
-import Pasarela from "./components/Pasarela/Pasarela";
-import chico from "./assets/chico.svg"
-import chico2 from "./assets/chico2.svg"
-import globo from "./assets/globo.svg"
-import marcas from "./assets/marcas.svg"
-import StandardC from "./assets/StandardC.jpg"
-import Instagram from "./assets/Instagram.svg"
-import Twitter from "./assets/Twitter.svg"
-import Facebook from "./assets/Facebook.svg"
-import Options from "./components/Options/Options";
+import Carousel from "./components/Carousel/Carousel";
+import chico from "./assets/chico.svg";
+import chico2 from "./assets/chico2.svg";
+import globo from "./assets/globo.svg";
+import marcas from "./assets/marcas.svg";
+import StandardC from "./assets/StandardC.jpg";
+import Instagram from "./assets/Instagram.svg";
+import Twitter from "./assets/Twitter.svg";
+import Facebook from "./assets/Facebook.svg";
+import NavBarPC from "./components/Navbar/NavBarPC/NavBarPC";
+import NavBarMobile from "./components/Navbar/NavBarMobile/NavBarMobile";
 
 export default function App() {
   return (
     <div className="landing">
-      <NavBar />
-      <Options/>
-      <div className="contenedortextoimagen">
+      <NavBarPC />
+      <NavBarMobile />
+      <div id="about" className="contenedortextoimagen">
         <div className="contenedordetexto">
           <h1 className="wantAnythingToContainer" id="h1">
             <span className="wantAnythingTo1">
@@ -53,9 +53,9 @@ export default function App() {
         <img className="fotito" src={chico}></img>
       </div>
 
-      <Rectangulo />
+      <StatsRectangle />
 
-      <div className="contenederfotito2ytexto">
+      <div id="features" className="contenederfotito2ytexto">
         <div>
           <img className="fotito2" src={chico2}></img>
         </div>
@@ -81,11 +81,11 @@ export default function App() {
           Let's choose the package that is best for you and explore it happily
           and
           <br />
-          <p className="mastexto">cheerfully.</p>
+          cheerfully.
         </p>
       </div>
 
-      <Planes />
+      <Plans/>
 
       <div className="despuesdelplan">
         <h1 className="despues">
@@ -104,14 +104,14 @@ export default function App() {
         </div>
         <div className="globoo">
           <div className="globo1">
-          <img src={globo}></img>
+            <img src={globo}></img>
           </div>
           <div className="imagennoglobo2">
-          <img src={marcas}></img>
+            <img src={marcas}></img>
           </div>
         </div>
 
-        <h1 className="despues">
+        <h1 id="testimonials" className="despues">
           Trusted by Thousands of <br /> Happy Customer
         </h1>
         <div className="texto2">
@@ -121,11 +121,11 @@ export default function App() {
         </div>
       </div>
 
-      <Pasarela/>
+      <Carousel />
 
       <Form />
 
-      <footer className="fo">
+      <footer id="help" className="fo">
         <div className="nav2">
           <div className="laslesvpnn">
             <img className="" alt="" src={StandardC} />
@@ -142,7 +142,7 @@ export default function App() {
           <div className="fotoo2">
             <img className="fotoo" src={Facebook} alt="facebook" />
             <img className="fotoo" src={Twitter} alt="twitter" />
-            <img className="fotoo" src={Instagram }alt="instagram" />
+            <img className="fotoo" src={Instagram} alt="instagram" />
           </div>
           <span className="pp">©2020Lasles</span>
           <span className="ppp">VPN</span>

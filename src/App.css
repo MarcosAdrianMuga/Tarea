@@ -1,5 +1,9 @@
 @import url("https://fonts.googleapis.com/css2?family=Rubik:wght@400&display=swap");
 
+html {
+  scroll-behavior: smooth; /* Hace que los desplazamientos sean suaves */
+}
+
 body {
   background-size: cover;
   background-attachment: fixed;
