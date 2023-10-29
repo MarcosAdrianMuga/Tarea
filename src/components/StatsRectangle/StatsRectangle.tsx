@@ -1,10 +1,10 @@
-import "./Rectangulo.css";
+import "./StatsRectangle.css";
 import icono1 from "../../assets/icono1.svg";
 import linea from "../../assets/linea.svg";
 import icono2 from "../../assets/icono2.svg";
 import icono3 from "../../assets/icono3.svg";
 
-export default function Rectangulo() {
+export default function StatsRectangle() {
   return (
     <div className="rec">
       <div className="rectangleDiv">

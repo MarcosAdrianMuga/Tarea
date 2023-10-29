@@ -71,11 +71,26 @@
   }
   .Cabecera-ul {
     display: contents;
+    list-style: none;
+    background-color: #f53855;
   }
+
+  .Cabecera-a {
+    text-decoration: none;
+    color: #4f5665;
+  }
+
+  .Cabecera-a:hover {
+    cursor: pointer;
+    color: #f53855;
+    transition: 0.5s;
+  }
+
   .Cabecera-li {
     list-style: none;
     margin: 0.5em 0;
   }
+
   .Cabecera-li:hover {
     cursor: pointer;
     color: #f53855;

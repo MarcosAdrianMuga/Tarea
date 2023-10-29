@@ -1,48 +1,29 @@
-import React, { useEffect, useState } from "react";
-import "./Pasarela.css";
-
-type Testimonial = {
-  avatar: string;
-  fullName: string;
-  testimonial: string;
-};
+import React, { useState } from "react";
+import "./Carousel.css";
+import { useTestimonials } from "../../Hooks/useTestimonials";
 
 const Carousel: React.FC = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
-  const [testimonial, setTestimonial] = useState<Testimonial[]>([]);
-
-  useEffect(() => {
-    fetch(
-      "https://6xrb5goi1l.execute-api.us-east-1.amazonaws.com/api/testimonial"
-    )
-      .then((response) => {
-        response.json().then((result) => {
-          setTestimonial(result);
-        });
-      })
-      .catch((error) => {
-        console.log(error.message);
-      });
-  }, []);
+  const { testimonials } = useTestimonials();
 
   const prevSlide = () => {
     setCurrentIndex((prevIndex) =>
-      prevIndex === 0 ? testimonial.length - 3 : prevIndex - 1
+      prevIndex === 0 ? testimonials.length - 3 : prevIndex - 1
     );
   };
 
   const nextSlide = () => {
-    setCurrentIndex((prevIndex) => (prevIndex + 1) % (testimonial.length - 2));
+    setCurrentIndex((prevIndex) => (prevIndex + 1) % (testimonials.length - 2));
   };
 
   return (
-    <div className="pasa">
+    <div id="testimonials" className="pasa">
       <div className="carousel">
         <div
           className="carousel-content"
           style={{ transform: `translateX(-${currentIndex * 49}%)` }}
         >
-          {testimonial?.map((t, index) => (
+          {testimonials?.map((t, index) => (
             <div key={index} className="carousel-review">
               <div className="hijo">
                 <img

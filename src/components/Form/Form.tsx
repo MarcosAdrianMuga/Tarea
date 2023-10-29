@@ -1,7 +1,7 @@
 import { useState } from "react";
-import * as yup from "yup";
 import { useForm } from "react-hook-form";
 import "./Form.css"
+import { useEmailSender } from "../../Hooks/sendEmail"
 
 type FormData = {
   fullname: string;
@@ -15,44 +15,36 @@ export default function Form() {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm<FormData>();  
+  } = useForm<FormData>();
 
-  const schema = yup.object({
-    fullname: yup.string().required("Full name is a required field"),
-    email: yup.string().email().required("Email is a required field"),
-    phone: yup.number().typeError("Phone must be a number").min(10, "You are missing some numbers!").required(),
-    message: yup.string().required("Message is a required field"),
-  });
+  const sendEmail = useEmailSender(); 
 
   const [error, setError] = useState<string | null>(null);
-  const subir = handleSubmit((data) => {
-    schema
-      .validate(data)
-      .then(() => {
-        fetch(
-          `https://6xrb5goi1l.execute-api.us-east-1.amazonaws.com/api/send-email`,
-          {
-            method: "POST",
-            headers: {
-              "Content-Type": "application/json",
-            },
-            body: JSON.stringify(data),
-          }
-        )
-          .then((response) => {
-            if (response.ok) {
-              setError("Thanks! We will be in touch!");
-            } else {
-              setError(response.statusText);
-            }
-          })
-          .catch((err) => {
-            setError(err.message);
-          });
+
+  const subir = handleSubmit(async (data : FormData)  => {
+    const result = await sendEmail(data);
+
+   if(result === "Thanks! We will be in touch!") {
+    const { fullname, email, message } = data
+    try {
+      const res = await fetch('/Hooks/sendEmail', {
+        // method: 'POST',
+        body: JSON.stringify({
+          fullname,
+          email,
+          message,
+        }),
+        headers: {
+          'content-type': 'application/json',
+        },
       })
-      .catch((validationError) => {
-        setError(validationError.message);
-      });
+      console.log(res);
+      
+    } catch (error) {
+      console.log(error);
+    }
+   }
+    setError(result);
   });
 
   return (
