@@ -1,4 +1,4 @@
-import "./NavbarMobile.css";
+import "./NavBarMobile.css";
 import StandardC from "../../../assets/StandardC.jpg";
 import { useState } from "react";
 
