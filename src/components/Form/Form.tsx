@@ -27,7 +27,7 @@ export default function Form() {
    if(result === "Thanks! We will be in touch!") {
     const { fullname, email, message } = data
     try {
-      const res = await fetch('/Hooks/personalEmail', {
+      const res = await fetch('/Hooks/mailSender', {
         method: 'POST',
         body: JSON.stringify({
           fullname,

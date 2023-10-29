@@ -1,4 +1,6 @@
+"use client"
 import * as yup from "yup";
+import nodemailer from "nodemailer";
 
 type EmailData = {
   fullname: string;
@@ -11,7 +13,7 @@ export const useEmailSender = () => {
   const schema = yup.object({
     fullname: yup.string().required("Full name is a required field"),
     email: yup.string().email().required("Email is a required field"),
-    phone: yup.number().typeError("Phone must be a number").min(10, "You are missing some numbers!").required(),
+    phone: yup.string().required("Phone is a required field"),
     message: yup.string().required("Message is a required field"),
   });
 
@@ -19,31 +21,43 @@ export const useEmailSender = () => {
     try {
       await schema.validate(data);
 
-      const response = await fetch(
-        `https://6xrb5goi1l.execute-api.us-east-1.amazonaws.com/api/send-email`,
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify(data),
-        }
-      );
+      const MyEmail = process.env.EMAIL;
+      const pass = process.env.EMAIL_PASS;
 
-      if (response.ok) {
-        return "Thanks! We will be in touch!";
-      } else {
-        return response.statusText;
-      }
+      const transporter = nodemailer.createTransport({
+        service: "gmail",
+        auth: {
+          user: MyEmail,
+          pass: pass,
+        },
+        secure: false,
+        port: 5173,
+        logger: true,
+        tls: { rejectUnauthorized: false },
+      });
 
-      
+      const mailOptions = {
+        from: `${data.email}`,
+        to: MyEmail, 
+        subject: "Nuevo mensaje de contacto",
+        text: `
+          Nombre: ${data.fullname}
+          Email: ${data.email}
+          Teléfono: ${data.phone}
+          Mensaje: ${data.message}
+        `,
+      };
+
+      await transporter.sendMail(mailOptions);
+      console.log("Correo enviado con éxito");
+
+      return "Thanks! We will be in touch!";
     } catch (err) {
-        if (err instanceof Error) {
-          return err.message;
-        } else {
-          return "An unknown error occurred.";
-        }
+      if (err instanceof Error) {
+        return err.message;
+      } else {
+        return "An unknown error occurred.";
+      }
     }
   };
 };
-
