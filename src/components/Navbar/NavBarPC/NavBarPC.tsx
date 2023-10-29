@@ -1,4 +1,4 @@
-import "./NavbarPC.css";
+import "./NavBarPC.css";
 import StandardC from "../../../assets/StandardC.jpg";
 
 export default function NavBarPC() {
