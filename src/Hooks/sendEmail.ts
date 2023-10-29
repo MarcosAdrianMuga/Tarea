@@ -1,6 +1,7 @@
-"use client"
+// "use client"
 import * as yup from "yup";
-import nodemailer from "nodemailer";
+import emailjs from 'emailjs-com';
+
 
 type EmailData = {
   fullname: string;
@@ -21,35 +22,27 @@ export const useEmailSender = () => {
     try {
       await schema.validate(data);
 
-      const MyEmail = process.env.EMAIL;
-      const pass = process.env.EMAIL_PASS;
+      // const MyEmail = process.env.EMAIL;
 
-      const transporter = nodemailer.createTransport({
-        service: "gmail",
-        auth: {
-          user: MyEmail,
-          pass: pass,
-        },
-        secure: false,
-        port: 5173,
-        logger: true,
-        tls: { rejectUnauthorized: false },
-      });
+      const templateParams = {
+        // from_name: `${data.email}`,
+        to_name: `${data.email}`, 
+        // subject: "Nuevo mensaje de contacto",
+        from_name: `${data.fullname}`,
 
-      const mailOptions = {
-        from: `${data.email}`,
-        to: MyEmail, 
-        subject: "Nuevo mensaje de contacto",
-        text: `
-          Nombre: ${data.fullname}
+        message: `
           Email: ${data.email}
           Teléfono: ${data.phone}
           Mensaje: ${data.message}
         `,
       };
 
-      await transporter.sendMail(mailOptions);
-      console.log("Correo enviado con éxito");
+      emailjs.send('service_pcbl5mm', 'template_prhvw43', templateParams, 'V5ZtH95ZyGsUCQ3z6')
+        .then(function(response) {
+          console.log('Correo enviado con éxito', response.status, response.text);
+        }, function(err) {
+          console.log('Ocurrió un error.', err);
+        });
 
       return "Thanks! We will be in touch!";
     } catch (err) {

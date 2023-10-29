@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useForm } from "react-hook-form";
 import "./Form.css"
-import { useEmailSender } from "../../Hooks/sendEmail";
+import { useEmailSender } from "../../Hooks/sendEmail"
 
 type FormData = {
   fullname: string;
@@ -21,14 +21,14 @@ export default function Form() {
 
   const [error, setError] = useState<string | null>(null);
 
-  const subir = handleSubmit(async (data) => {
+  const subir = handleSubmit(async (data : FormData)  => {
     const result = await sendEmail(data);
 
    if(result === "Thanks! We will be in touch!") {
     const { fullname, email, message } = data
     try {
-      const res = await fetch('/Hooks/mailSender', {
-        method: 'POST',
+      const res = await fetch('/Hooks/sendEmail', {
+        // method: 'POST',
         body: JSON.stringify({
           fullname,
           email,
