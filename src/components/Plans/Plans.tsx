@@ -15,9 +15,11 @@ export default function Plans() {
     } else return Premium;
   };
 
+  console.log(plans, "HOLAAAAAAAAAAAAAAAAAAAAAA");
+
   return (
     <div id="pricing" className="papaelemento">
-      {plans.map((option, i) => {
+      {plans.length && plans.map((option, i) => {
         return (
           <div
             key={i}

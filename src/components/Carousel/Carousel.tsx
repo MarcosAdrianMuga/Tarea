@@ -16,6 +16,9 @@ const Carousel: React.FC = () => {
     setCurrentIndex((prevIndex) => (prevIndex + 1) % (testimonials.length - 2));
   };
 
+  console.log(testimonials, "hola");
+  
+
   return (
     <div id="testimonials" className="pasa">
       <div className="carousel">
@@ -23,7 +26,7 @@ const Carousel: React.FC = () => {
           className="carousel-content"
           style={{ transform: `translateX(-${currentIndex * 49}%)` }}
         >
-          {testimonials?.map((t, index) => (
+          {testimonials.length && testimonials?.map((t, index) => (
             <div key={index} className="carousel-review">
               <div className="hijo">
                 <img
